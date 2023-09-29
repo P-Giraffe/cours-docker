@@ -1,1 +1,4 @@
 /exemple-directus-avance/compose.override.yml
+/exemple-directus-avance/caddy/config
+/exemple-directus-avance/caddy/data
+/exemple-directus-avance/data
