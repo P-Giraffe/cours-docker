@@ -2,3 +2,4 @@
 /exemple-directus-avance/caddy/config
 /exemple-directus-avance/caddy/data
 /exemple-directus-avance/data
+exemple-directus-avance/secrets/*
