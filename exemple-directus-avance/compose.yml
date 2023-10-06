@@ -2,7 +2,7 @@ version: '3'
 services:
   caddy:
     image: caddy:2.7
-    restart: unless-stopped
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -14,6 +14,7 @@ services:
 
   database:
     image: postgis/postgis:13-master
+    restart: always
     volumes:
       - ./data/database:/var/lib/postgresql/data
     environment:
@@ -24,10 +25,12 @@ services:
       - database_password
 
   cache:
+    restart: always
     image: redis:6
 
   directus:
     image: directus/directus:10.4.0
+    restart: always
     ports:
       - 8055:8055
     volumes:
@@ -36,7 +39,7 @@ services:
       - cache
       - database
     environment:
-      PUBLIC_URL: 'https://www.monserverdirectus.com'
+      PUBLIC_URL: 'https://demo.purplegiraffe.fr'
       KEY: '255d861b-5ea1-5996-9aa3-922530ec40b1'
       SECRET_FILE: '/run/secrets/directus_secret'
       LOG_LEVEL: 'error'

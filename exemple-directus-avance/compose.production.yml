@@ -1,9 +1,0 @@
-version: '3'
-services:
-  directus:
-    volumes:
-      - ./uploads:/directus/uploads
-      - ./extensions:/directus/extensions
-    environment:
-      PUBLIC_URL: 'https://www.monserverdirectus.com'
-      LOG_LEVEL: 'error'
