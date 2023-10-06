@@ -1,12 +1,21 @@
 version: '3'
 services:
+  caddy:
+    restart: unless-stopped
+    volumes:
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
   database:
+    restart: unless-stopped
     # Required when running on platform other than amd64, like Apple M1/M2:
     platform: linux/amd64
     ports:
       - 10001:5432
 
+  cache:
+    restart: unless-stopped
+
   directus:
+    restart: unless-stopped
     volumes:
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
